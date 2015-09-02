@@ -8,6 +8,8 @@ defmodule CategoryService.Router do
   scope "/", CategoryService do
     pipe_through :api
 
-    resources "/categories", CategoryController
+    resources "/categories", CategoryController do
+      resources "/locales", LocaleController
+    end
   end
 end
