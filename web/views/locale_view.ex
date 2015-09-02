@@ -5,6 +5,10 @@ defmodule CategoryService.LocaleView do
     %{data: render_many(locales, CategoryService.LocaleView, "locale.json")}
   end
 
+  def render("show.json", %{locale: locale}) do
+    %{data: render_one(locale, CategoryService.LocaleView, "locale.json")}
+  end
+
   def render("locale.json", %{locale: locale}) do
     %{
       _links: %{

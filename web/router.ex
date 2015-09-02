@@ -8,8 +8,9 @@ defmodule CategoryService.Router do
   scope "/", CategoryService do
     pipe_through :api
 
-    resources "/categories", CategoryController do
-      resources "/locales", LocaleController
+    resources "/categories", CategoryController, except: [:edit, :new] do
+      resources "/locales", LocaleController, only: [:index]
+      get "/locales/:westfield_locale", LocaleController, :show
     end
   end
 end

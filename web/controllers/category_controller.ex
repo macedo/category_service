@@ -11,7 +11,7 @@ defmodule CategoryService.CategoryController do
   end
 
   def show(conn, %{"id" => id}) do
-    category = Repo.get(Category, id)
+    category = Category |> Repo.get(id)
     render conn, category: category
   end
 end

@@ -13,8 +13,15 @@ defmodule CategoryService.LocaleController do
     render conn, locales: locales
   end
 
+  def show(conn, %{"category_id" => category_id, "westfield_locale" => westfield_locale}) do
+    locale = (from locale in Locale,
+              where: locale.category_id == ^category_id and locale.westfield_locale == ^westfield_locale,
+              select: locale) |> Repo.one
+    render conn, locale: locale
+  end
+
   defp find_category(conn, _) do
-    category = Repo.get(Category, conn.params["category_id"])
+    category = Category |> Repo.get(conn.params["category_id"]) |> Repo.preload [:locales]
     assign(conn, :category, category)
   end
 end
