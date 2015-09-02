@@ -12,6 +12,9 @@ defmodule CategoryService.CategoryView do
   def render("category.json", %{category: category}) do
     %{
        _links: %{
+         locale: %{
+           href: "https://api.westfield.io/categories/#{category.id}/locales?version=1"
+         },
          parent: (if (is_nil(category.parent_id)), do: %{}, else: parent_data(category)),
          self: %{
            href: "https://api.westfield.io/categories/#{category.id}?version=1"

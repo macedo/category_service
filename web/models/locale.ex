@@ -1,13 +1,13 @@
-defmodule CategoryService.Category do
+defmodule CategoryService.Locale do
  use Ecto.Model
 
- schema "categories" do
+ schema "locales" do
   field :parent_id, :integer
   field :lft, :integer
   field :rgt, :integer
   field :depth, :integer
   field :enabled, :boolean
 
-  has_many :locales, CategoryService.Locale
+  belongs_to :category, CategoryService.Category
  end
 end
