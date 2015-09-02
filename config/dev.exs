@@ -35,7 +35,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :category_service, CategoryService.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "category_service_dev",
+  username: "rafaelmacedo",
+  password: "",
+  database: "category_service_beta_development",
   pool_size: 10
