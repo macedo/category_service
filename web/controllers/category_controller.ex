@@ -9,4 +9,9 @@ defmodule CategoryService.CategoryController do
     categories = Repo.all(Category)
     render conn, categories: categories
   end
+
+  def show(conn, %{"id" => id}) do
+    category = Repo.get(Category, id)
+    render conn, category: category
+  end
 end

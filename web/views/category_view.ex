@@ -5,6 +5,10 @@ defmodule CategoryService.CategoryView do
     %{data: render_many(categories, CategoryService.CategoryView, "category.json")}
   end
 
+  def render("show.json", %{category: category}) do
+    %{data: render_one(category, CategoryService.CategoryView, "category.json")}
+  end
+
   def render("category.json", %{category: category}) do
     %{
        _links: %{
